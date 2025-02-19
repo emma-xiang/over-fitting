@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机器学习中的过度拟合演示</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .model-section {
+            margin-bottom: 40px;
+        }
+        .model-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .model {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .model img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .explanation {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        p {
+            line-height: 1.6;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>机器学习中的过度拟合现象演示</h1>
+        
+        <div class="model-section">
+            <div class="model-container">
+                <div class="model">
+                    <img src="data:image/png;base64,{{ normal_fit }}" alt="正常拟合模型">
+                    <h2>正常拟合</h2>
+                    <p>使用3次多项式进行拟合，模型表现良好</p>
+                </div>
+                <div class="model">
+                    <img src="data:image/png;base64,{{ overfit }}" alt="过度拟合模型">
+                    <h2>过度拟合</h2>
+                    <p>使用15次多项式进行拟合，模型出现过度拟合</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h2>什么是过度拟合？</h2>
+            <p>过度拟合（Overfitting）是机器学习中的一个常见问题，它发生在模型在训练数据上表现得过于"完美"，但在新数据上表现不佳的情况。</p>
+            
+            <h2>为什么会发生过度拟合？</h2>
+            <p>在上面的演示中，我们可以看到：</p>
+            <ul>
+                <li>左图使用较低阶（3次）多项式进行拟合，模型较好地捕捉了数据的整体趋势，同时保持了适当的平滑度。</li>
+                <li>右图使用高阶（15次）多项式进行拟合，模型试图完美匹配每个训练数据点，导致曲线过于复杂，出现了不必要的波动。</li>
+            </ul>
+            
+            <h2>如何避免过度拟合？</h2>
+            <p>有几种常用的方法可以避免过度拟合：</p>
+            <ul>
+                <li>简化模型：使用更简单的模型或降低模型复杂度</li>
+                <li>增加训练数据：更多的训练数据可以帮助模型学习真实的模式</li>
+                <li>使用正则化：通过惩罚复杂的模型来防止过度拟合</li>
+                <li>交叉验证：使用验证集来评估模型的泛化能力</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
